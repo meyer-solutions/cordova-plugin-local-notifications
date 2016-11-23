@@ -66,7 +66,7 @@ NSInteger const APPLocalNotificationTypeTriggered = 2;
     self.soundName = options.soundName;
 
     if ([self wasInThePast]) {
-        self.fireDate = [NSDate date];
+        self.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
     }
 }
 
