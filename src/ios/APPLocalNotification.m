@@ -707,13 +707,13 @@
         if(fireDate==nil) {
             fireDate = [NSDate date];
         }
-         NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+         NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         // Extract all date components into dateComponents
-         NSDateComponents *dateComponents = [gregorianCalendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit
-         | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit
-                                                           fromDate:fireDate];
-         [dateComponents setTimeZone:[NSTimeZone defaultTimeZone]];
-        
+        NSDateComponents *dateComponents = [gregorianCalendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay
+                                            | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond
+                                                                fromDate:fireDate];
+        [dateComponents setTimeZone:[NSTimeZone defaultTimeZone]];
+                 
         /// 4. update application icon badge number
         //content.badge = @([[UIApplication sharedApplication] applicationIconBadgeNumber] + 1);
         
