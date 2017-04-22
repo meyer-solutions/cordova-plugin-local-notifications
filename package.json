@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/katzer/cordova-plugin-local-notifications.git"
+    "url": "git+https://github.com/meyer-solutions/cordova-plugin-local-notifications.git"
   },
   "keywords": [
     "appplant",
