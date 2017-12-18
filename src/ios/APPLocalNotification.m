@@ -82,8 +82,10 @@
             notification.repeatInterval = 0;
 
             [self scheduleLocalNotification:[notification copy]];
-            [self fireEvent:@"schedule" notification:notification];
-
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self fireEvent:@"schedule" notification:notification];
+            });
+            
             if (notifications.count > 1) {
                 [NSThread sleepForTimeInterval:0.01];
             }
@@ -725,7 +727,7 @@
             identifier = [notification.userInfo objectForKey:@"id"];
         }
         
-        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:[NSString stringWithFormat:@"%@",identifier] content:content trigger:trigger];
         
         /// 3. schedule localNotification
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
