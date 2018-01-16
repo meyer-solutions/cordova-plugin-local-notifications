@@ -68,7 +68,8 @@ exports.schedule = function (msgs, callback, scope, args) {
             return;
         }
 
-        for (var toast of toasts) {
+        for (var toastNo in toasts) {
+            var toast = toasts[toastNo];
             this.mergeWithDefaults(toast);
             this.convertProperties(toast);
         }
@@ -102,7 +103,8 @@ exports.update = function (msgs, callback, scope, args) {
             return;
         }
 
-        for (var toast of toasts) {
+        for (var toastNo in toasts) {
+            var toast = toasts[toastNo];
             this.convertProperties(toast);
         }
 
